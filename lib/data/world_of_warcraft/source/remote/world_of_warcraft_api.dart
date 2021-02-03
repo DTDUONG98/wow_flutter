@@ -18,13 +18,13 @@ part 'world_of_warcraft_api.g.dart';
 abstract class WOWApi
 {
   factory WOWApi(Dio dio,{String baseUrl}) = _WOWApi;
-  @GET('pvp-season/{pvpSeasonId}/pvp-leaderboard/{pvpBracket}?namespace=dynamic-us&locale=en_US&access_token=USvcxm0hn9dEx6XR8J6cjW0rprbM5Q7cFp')
+  @GET('pvp-season/{pvpSeasonId}/pvp-leaderboard/{pvpBracket}?namespace=dynamic-us&locale=en_US&access_token=US2gszqNoZaL29TvBC7alva3oKbTsJBZ2v')
   Future<LeaderBoard> getPvPRank(@Path('pvpSeasonId') int SeasonId, @Path('pvpBracket') String Bracket );
-  @GET('pet/index?namespace=static-us&locale=en_US&access_token=USvcxm0hn9dEx6XR8J6cjW0rprbM5Q7cFp')
+  @GET('pet/index?namespace=static-us&locale=en_US&access_token=US2gszqNoZaL29TvBC7alva3oKbTsJBZ2v')
   Future<ListPet> getPet();
-  @GET('pet/{petId}?namespace=static-us&locale=en_US&access_token=USvcxm0hn9dEx6XR8J6cjW0rprbM5Q7cFp')
+  @GET('pet/{petId}?namespace=static-us&locale=en_US&access_token=US2gszqNoZaL29TvBC7alva3oKbTsJBZ2v')
   Future<PetDetail> searchPet(@Path('petId') int petId);
-  @GET('quest/{questId}?namespace=static-us&locale=en_US&access_token=USvcxm0hn9dEx6XR8J6cjW0rprbM5Q7cFp')
+  @GET('quest/{questId}?namespace=static-us&locale=en_US&access_token=US2gszqNoZaL29TvBC7alva3oKbTsJBZ2v')
   Future<Quests> SearchQuest(@Path('questId') int questId);
 
 }
