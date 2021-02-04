@@ -21,39 +21,47 @@ class _RankScreenState extends State<RankScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('LEADER BOARD'),
-        actions: <Widget>[
-          IconButton(icon: Icon(Icons.search), onPressed: (){}),
-        ],
-        centerTitle: true,),
-      body:
-    BlocConsumer<RankBloc,RankState>
-      (builder: (context,state){
-      if(state is RankLoading)
-      {
-        return ColorLoaderRank();
-      }
-      else if( state is RankSuccessfullyState)
-      {
-        return ListView.builder(
-            shrinkWrap: true,
-            scrollDirection: Axis.vertical,
-            itemCount: state.response.entries.length,
-            itemBuilder: (BuildContext context, int index) {
-              Entries entries = state.response.entries[index];
-              return GestureDetector(
-                  onTap: (){
-                    print('next page');
-                  },
-                  child: ItemData(entries: entries,));
-            });
-      }
-      else {
-        return Center(child: Text('no data'),);
+    return Container(
+        decoration: BoxDecoration(
+        image: DecorationImage(
+        image: AssetImage("assets/images/bgr1.jpg"), fit: BoxFit.cover)),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          title: Text('LEADER BOARD'),
+          actions: <Widget>[
+            IconButton(icon: Icon(Icons.search), onPressed: (){}),
+          ],
+          centerTitle: true,),
+        body:
+        BlocConsumer<RankBloc,RankState>
+          (builder: (context,state){
+          if(state is RankLoading)
+          {
+            return ColorLoaderRank();
+          }
+          else if( state is RankSuccessfullyState)
+          {
+            return ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                itemCount: state.response.entries.length,
+                itemBuilder: (BuildContext context, int index) {
+                  Entries entries = state.response.entries[index];
+                  return GestureDetector(
+                      onTap: (){
+                        print('next page');
+                      },
+                      child: ItemData(entries: entries,));
+                });
+          }
+          else {
+            return Center(child: Text('no data'),);
 
-      }
-    } , listener: (context,state){print('$state');}),);
+          }
+        } , listener: (context,state){print('$state');}),),
+    );
   }
 }

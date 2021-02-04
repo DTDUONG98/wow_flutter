@@ -3,6 +3,7 @@ import 'package:flutter_architecture/di/module/bloc_module.dart';
 import 'package:flutter_architecture/di/module/components_module.dart';
 import 'package:flutter_architecture/di/module/list_pet_module.dart';
 import 'package:flutter_architecture/di/module/quest_module.dart';
+import 'package:flutter_architecture/di/module/rank_detail_module.dart';
 import 'package:flutter_architecture/di/module/rank_module.dart';
 import 'package:flutter_architecture/di/module/repo_module.dart';
 import 'package:flutter_architecture/di/module/title_pet_module.dart';
@@ -20,5 +21,6 @@ class Injection {
     await QuestsModule().provides();
     await ListPetModule().provides();
     await TitlePetModule().provides();
+    await RankDetailModule().provides();
   }
 }

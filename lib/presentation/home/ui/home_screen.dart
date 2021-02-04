@@ -49,11 +49,13 @@ class _HomeScreenState extends State<HomeScreen> {
       child: PetScreen()), SearchScreen()];
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: childrens[_currentPageIndex],
       bottomNavigationBar: BottomNavigationBar(
+        elevation: 0,
         onTap: _selectPage,
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Colors.transparent,
         unselectedItemColor: Colors.white,
         selectedItemColor: Colors.white,
         currentIndex: _currentPageIndex,

@@ -24,39 +24,47 @@ class _PetScreenState extends State<PetScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('LIST PET'),
-        centerTitle: true,
-      ),
-      body: BlocConsumer<ListPetBloc, ListPetState>(builder: (context, state) {
-        if (state is ListPetLoading) {
-          return ColorLoaderListPet();
-        } else if (state is PetSuccessfully) {
-          return ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: Axis.vertical,
-              itemCount: state.pet.pets.length,
-              itemBuilder: (BuildContext context, int index) {
-                IndexPet indexPet = state.pet.pets[index];
-                return GestureDetector(
-                    onTap: () {
-                      print('next page');
-                      Navigator.pushNamed(context, DetailPetRouter.id,
-                          arguments: indexPet.id);
-                    },
-                    child: ItemData(
-                      indexPet: indexPet,
-                    ));
-              });
-        } else {
-          return Center(
-            child: Text('nodata'),
-          );
-        }
-      }, listener: (context, state) {
-        print('$state');
-      }),
-    );
+    return Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/images/bgr2.jpg"), fit: BoxFit.cover)),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            title: Text('LIST PET'),
+            elevation: 0,
+            centerTitle: true,
+          ),
+          body: BlocConsumer<ListPetBloc, ListPetState>(builder: (context, state) {
+            if (state is ListPetLoading) {
+              return ColorLoaderListPet();
+            } else if (state is PetSuccessfully) {
+              return ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  itemCount: state.pet.pets.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    IndexPet indexPet = state.pet.pets[index];
+                    return GestureDetector(
+                        onTap: () {
+                          print('next page');
+                          Navigator.pushNamed(context, DetailPetRouter.id,
+                              arguments: indexPet.id);
+                        },
+                        child: ItemData(
+                          indexPet: indexPet,
+                        ));
+                  });
+            } else {
+              return Center(
+                child: Text('nodata'),
+              );
+            }
+          }, listener: (context, state) {
+            print('$state');
+          }),
+        ),
+      );
   }
 }
