@@ -18,10 +18,17 @@ class ItemData extends StatelessWidget {
     int lost = entries.seasonMatchStatics.lost;
     return GestureDetector(
       child: Card(
-        elevation: 8.0,
+          shape: StadiumBorder(
+            side: BorderSide(
+              color: Colors.white30,
+              width: 2.0,
+            ),
+          ),
+          elevation: 0.5,
+          color: Colors.transparent,
         margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
         child: Container(
-          decoration: BoxDecoration(color: rank == 1 ? Colors.amberAccent : rank == 2 ? Colors.black26 : rank == 3 ? Colors.brown : Colors.white10),
+          decoration: BoxDecoration(),
           child:  ListTile(
               contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
               leading: Container(
@@ -41,27 +48,27 @@ class ItemData extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     'name : $name    Rank : $rank',
-                    style: TextStyle(color: Colors.black45, fontWeight: FontWeight.bold,),
+                    style: TextStyle(color: Colors.white70, fontWeight: FontWeight.bold,),
                   ),
                   Text(
                     'Ratting : $ratting',
-                    style: TextStyle(color: Colors.black45, fontWeight: FontWeight.bold),
+                    style: TextStyle(color: Colors.white70, fontWeight: FontWeight.bold),
                   ),
                   Text(
                     'slug : $slug ',
-                    style: TextStyle(color: Colors.black45, fontWeight: FontWeight.bold),
+                    style: TextStyle(color: Colors.white70, fontWeight: FontWeight.bold),
                   ),
                   Text(
                     'faction : $faction ',
-                    style: TextStyle(color: Colors.black45, fontWeight: FontWeight.bold),
+                    style: TextStyle(color: Colors.white70, fontWeight: FontWeight.bold),
                   ),
                   Text(
                     'Played : $played',
-                    style: TextStyle(color: Colors.black45, fontWeight: FontWeight.bold),
+                    style: TextStyle(color: Colors.white70, fontWeight: FontWeight.bold),
                   ),
                   Text(
                     'won : $won  lost : $lost',
-                    style: TextStyle(color: Colors.black45, fontWeight: FontWeight.bold),
+                    style: TextStyle(color: Colors.white70, fontWeight: FontWeight.bold),
                   ),
                 ],
               )
